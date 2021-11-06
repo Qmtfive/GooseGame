@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Goose8.png-edcd2bfa900f1c17401c38dece5ea10e.stex"
+path="res://.import/Goose8.png-8d10c5e84c9b1d5e81d3e12ca349ae4c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Goose/Goose8.png"
-dest_files=[ "res://.import/Goose8.png-edcd2bfa900f1c17401c38dece5ea10e.stex" ]
+source_file="res://Assets/Goose/Goose8.png"
+dest_files=[ "res://.import/Goose8.png-8d10c5e84c9b1d5e81d3e12ca349ae4c.stex" ]
 
 [params]
 
