@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Walk2.png-a7982c06bf3994b70cebc31552b18bc0.stex"
+path="res://.import/Walk2.png-87588dcbd3e3d534e1b2a0a4c6c15636.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Goose/Walk2.png"
-dest_files=[ "res://.import/Walk2.png-a7982c06bf3994b70cebc31552b18bc0.stex" ]
+source_file="res://Assets/Goose/Walk2.png"
+dest_files=[ "res://.import/Walk2.png-87588dcbd3e3d534e1b2a0a4c6c15636.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

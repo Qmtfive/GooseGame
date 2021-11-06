@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Goose2.png-46a533fc52b90aac1321183b26ac1b3b.stex"
+path="res://.import/Goose2.png-a8fd267a634ee1a87c35bdb827c82221.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Goose/Goose2.png"
-dest_files=[ "res://.import/Goose2.png-46a533fc52b90aac1321183b26ac1b3b.stex" ]
+source_file="res://Assets/Goose/Goose2.png"
+dest_files=[ "res://.import/Goose2.png-a8fd267a634ee1a87c35bdb827c82221.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

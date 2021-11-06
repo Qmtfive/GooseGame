@@ -44,18 +44,18 @@ playing = true
 position = Vector2( 168.036, 45.8197 )
 frames = SubResource( 2 )
 animation = "WalkingDude"
-frame = 2
+frame = 1
 playing = true
 
 [node name="Player" type="Area2D" parent="."]
-position = Vector2( 240, 240 )
+position = Vector2( 225, 240 )
 script = ExtResource( 7 )
 speed = 100
 
 [node name="WalkingDude" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 2 )
 animation = "WalkingDude"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
