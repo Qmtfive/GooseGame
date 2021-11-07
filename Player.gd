@@ -13,13 +13,14 @@ func _ready():
 
 func _process(delta):
 	if attacking != true:
+		anims.rotation = deg2rad(0)
 		var velocity = Vector2()  # The player's movement vector.
 		if Input.is_action_pressed("ui_right"):
 			velocity.x += 1
-			attackdir = 0
+			attackdir = 2
 		if Input.is_action_pressed("ui_left"):
 			velocity.x -= 1
-			attackdir = 2
+			attackdir = 0
 		if Input.is_action_pressed("ui_down"):
 			velocity.y += 1
 			attackdir = 3
@@ -29,13 +30,14 @@ func _process(delta):
 		if Input.is_action_pressed("ui_select"):
 			anims.flip_h = false
 			attacking = true
+			#The order is slightly messed up, blame me - Rob
 			if attackdir == 0:
 				$AttackDetect/AttackLeft.disabled = false
 			elif attackdir == 1:
 				anims.rotation = deg2rad(90)
 				$AttackDetect/AttackUp.disabled = false
 			elif attackdir == 2:
-				anims.rotation = deg2rad(180)
+				anims.flip_h = true
 				$AttackDetect/AttackRight.disabled = false
 			elif attackdir == 3:
 				anims.rotation = deg2rad(270)
@@ -60,7 +62,7 @@ func _process(delta):
 
 func _on_AttackTimer_timeout():
 	attacking = false
-	anims.rotation = deg2rad(0)
+	#anims.rotation = deg2rad(0)
 	anims.stop()
 	$AttackDetect/AttackTimer.stop()
 	$AttackDetect/AttackLeft.disabled = true

@@ -26,20 +26,10 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "WalkingDude",
-"speed": 3.0
-}, {
 "frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
-"loop": false,
+"loop": true,
 "name": "Attack",
 "speed": 10.0
-}, {
-"frames": [ ExtResource( 19 ), ExtResource( 11 ), ExtResource( 20 ), ExtResource( 12 ), ExtResource( 20 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "WalkSide",
-"speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ), ExtResource( 1 ), ExtResource( 17 ), ExtResource( 2 ), ExtResource( 17 ), ExtResource( 1 ) ],
 "loop": true,
@@ -49,6 +39,16 @@ animations = [ {
 "frames": [ ExtResource( 15 ), ExtResource( 18 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 18 ) ],
 "loop": true,
 "name": "WalkDown",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "WalkingDude",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 11 ), ExtResource( 20 ), ExtResource( 12 ), ExtResource( 20 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "WalkSide",
 "speed": 5.0
 } ]
 
@@ -82,7 +82,7 @@ speed = 100
 [node name="PlayerAnims" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 1 )
 animation = "Attack"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -112,7 +112,7 @@ shape = SubResource( 6 )
 disabled = true
 
 [node name="AttackTimer" type="Timer" parent="Player/AttackDetect"]
-wait_time = 0.05
+wait_time = 0.5
 one_shot = true
 
 [node name="PedSpawnTimer" type="Timer" parent="."]
