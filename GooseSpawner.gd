@@ -34,3 +34,11 @@ func spawnWave():
 			goose.position.y = 480
 			goose.yvel = -1
 		add_child(goose)
+		goose.connect("nomoregoose", self, "noMoreGoose")
+		goose.connect("score", self, "score")
+
+func noMoreGoose():
+	pass
+	
+func score():
+	pass

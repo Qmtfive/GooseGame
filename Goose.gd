@@ -11,6 +11,8 @@ var timeTillWalkAgain = null
 var victim = null #The Pedestrian the Goose is currently chasing
 
 signal hit(victim)
+signal nomoregoose
+signal score
 
 func newStopTimer():
 	timeTillStop = Timer.new()
@@ -83,6 +85,7 @@ func changeDirection():
 	timeTillStop = newStopTimer()
 
 func _on_Visibility_screen_exited():
+	emit_signal("nomoregoose")
 	queue_free()
 
 func _on_Goose_body_entered(body):
@@ -107,6 +110,8 @@ func _on_Goose_area_entered(area):
 		yvel = vel.y
 
 func _on_DeathBox_area_entered(area):
+	emit_signal("nomoregoose")
+	emit_signal("score")
 	queue_free()
 
 func clear_victim():
