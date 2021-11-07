@@ -5,6 +5,8 @@ export var speed = 30
 export var xvel = 0
 export var yvel = 0
 var yveltempstore = 0
+var timeTillStop = null
+var timeTillWalkAgain = null
 
 func newStopTimer():
 	var timeTillStop = Timer.new()
@@ -31,8 +33,7 @@ func _ready():
 	var rand = RandomNumberGenerator.new()
 	rand.randomize()
 	xvel = rand.randf_range(-.5,.5)
-	var timeTillStop = Timer.new()
-	newStopTimer()
+	timeTillStop = newStopTimer()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -45,14 +46,16 @@ func _process(delta):
 	position += velocity * delta
 
 func stop():
+	timeTillStop.stop()
 	yveltempstore = yvel
 	yvel = 0
 	xvel = 0
-	newWalkTimer()
+	timeTillWalkAgain = newWalkTimer()
 
 func changeDirection():
+	timeTillWalkAgain.stop()
 	var rand = RandomNumberGenerator.new()
 	rand.randomize()
 	xvel = rand.randf_range(-.5,.5)
 	yvel = yveltempstore
-	newStopTimer()
+	timeTillStop = newStopTimer()
