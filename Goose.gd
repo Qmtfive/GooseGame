@@ -89,7 +89,8 @@ func _on_Goose_body_entered(body):
 func _on_Goose_area_entered(area):
 	if victim == null:
 		timeTillStop.stop()
-		timeTillWalkAgain.stop()
+		if timeTillWalkAgain != null:
+			timeTillWalkAgain.stop()
 		yveltempstore = yvel
 		if area.get_parent() != null:
 			victim = area.get_parent()
