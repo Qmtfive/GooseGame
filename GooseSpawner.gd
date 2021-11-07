@@ -14,6 +14,13 @@ func _ready():
 func start():
 	spawnWave()
 
+func reset():
+	geeseOnScreen = 0
+	score = 0
+	nextWave = 3
+	$theyCome.stop()
+	$tillNextWave.stop()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

@@ -32,6 +32,7 @@ func game_over():
 	$PedSpawnTimer.stop()
 	get_tree().call_group("geese", "queue_free")
 	get_tree().call_group("pedestrians", "queue_free")
+	$GooseSpawner.reset()
 	$VE_LOST.show()
 	$LossTimer.start()
 
