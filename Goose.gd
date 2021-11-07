@@ -85,7 +85,7 @@ func changeDirection():
 	timeTillStop = newStopTimer()
 
 func _on_Visibility_screen_exited():
-	print("screen exit")
+	#print("screen exit")
 	emit_signal("nomoregoose")
 	queue_free()
 

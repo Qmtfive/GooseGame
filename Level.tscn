@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Assets/UmbrellaHolderUp/Walk2.png" type="Texture" id=1]
 [ext_resource path="res://Assets/UmbrellaHolderUp/Walk4.png" type="Texture" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://Assets/UmbrellaSlideAttack/Slide3.png" type="Texture" id=23]
 [ext_resource path="res://Assets/GameOver/gameover.png" type="Texture" id=24]
 [ext_resource path="res://Assets/Sound/Canadian Geese Honk-SoundBible.com-611844731.mp3" type="AudioStream" id=25]
+[ext_resource path="res://Assets/Misc/feather.png" type="Texture" id=26]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -84,6 +85,7 @@ speed = 100
 [node name="PlayerAnims" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 1 )
 animation = "Attack"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -134,6 +136,22 @@ one_shot = true
 
 [node name="theyCome" type="AudioStreamPlayer" parent="GooseSpawner"]
 stream = ExtResource( 25 )
+
+[node name="Sprite" type="Sprite" parent="GooseSpawner"]
+position = Vector2( 360, 14 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 26 )
+
+[node name="Score" type="Label" parent="GooseSpawner"]
+margin_left = 380.0
+margin_top = -1.0
+margin_right = 480.0
+margin_bottom = 29.0
+text = "SCORE: 0"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VE_LOST" type="Sprite" parent="."]
 visible = false

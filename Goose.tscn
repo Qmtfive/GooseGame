@@ -27,6 +27,7 @@ script = ExtResource( 1 )
 [node name="GooseAnimation" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "Goose"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

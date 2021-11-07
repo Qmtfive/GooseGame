@@ -20,6 +20,7 @@ func reset():
 	gameover = true
 	geeseOnScreen = 0
 	score = 0
+	$Score.text = "SCORE: 0"
 	nextWave = 3
 	$theyCome.stop()
 	$tillNextWave.stop()
@@ -59,6 +60,8 @@ func noMoreGoose():
 
 func score():
 	score += 1
+	$Score.text = "SCORE: " + str(score)
+	$Score.show()
 
 func _on_tillNextWave_timeout():
 	$theyCome.stop()
