@@ -13,14 +13,14 @@ func _ready():
 		var goose = mothergoose.instance()
 		var rand = RandomNumberGenerator.new()
 		rand.randomize()
-		goose.position.x = rand.randf_range(0, 475)
+		goose.position.x = rand.randf_range(0, 480)
 		rand.randomize()
 		var boolean = rand.randi_range(0, 1)
 		if boolean == 0:
-			goose.position.y = -10
+			goose.position.y = 0
 			goose.yvel = 1
 		elif boolean == 1:
-			goose.position.y = 500
+			goose.position.y = 480
 			goose.yvel = -1
 		add_child(goose)
 

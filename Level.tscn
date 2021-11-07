@@ -9,7 +9,7 @@
 [ext_resource path="res://GooseSpawner.gd" type="Script" id=9]
 [ext_resource path="res://Pedestrian.tscn" type="PackedScene" id=10]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 3 ) ],
 "loop": true,
@@ -17,7 +17,7 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 13, 12 )
 
 [node name="Level" type="Node2D"]
@@ -30,8 +30,9 @@ texture = ExtResource( 6 )
 
 [node name="WalkingDude" type="AnimatedSprite" parent="."]
 position = Vector2( 168.036, 45.8197 )
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "WalkingDude"
+frame = 3
 playing = true
 
 [node name="Player" type="Area2D" parent="."]
@@ -40,13 +41,12 @@ script = ExtResource( 7 )
 speed = 100
 
 [node name="WalkingDude" type="AnimatedSprite" parent="Player"]
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "WalkingDude"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="PedSpawnTimer" type="Timer" parent="."]
 autostart = true

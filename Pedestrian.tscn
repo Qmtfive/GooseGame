@@ -10,13 +10,13 @@
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "WalkFast",
-"speed": 6.0
+"name": "WalkSlow",
+"speed": 3.0
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "WalkSlow",
-"speed": 3.0
+"name": "WalkFast",
+"speed": 6.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -34,6 +34,7 @@ script = ExtResource( 5 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "WalkFast"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
