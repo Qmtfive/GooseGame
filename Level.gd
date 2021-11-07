@@ -11,7 +11,10 @@ export (PackedScene) var Pedestrian
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-
+	var startscene = load("res://Start.tscn")
+	var start = startscene.instance()
+	add_child(start)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

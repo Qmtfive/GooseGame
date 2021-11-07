@@ -2,13 +2,21 @@ extends Node
 
 
 # Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export var geeseOnScreen = 0
+export var score = 0
+var nextWave = 3
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for i in range(0, 10):
+	pass
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func spawnWave():
+	for i in range(0, nextWave):
 		var mothergoose = load("res://Goose.tscn")
 		var goose = mothergoose.instance()
 		var rand = RandomNumberGenerator.new()
@@ -23,9 +31,3 @@ func _ready():
 			goose.position.y = 480
 			goose.yvel = -1
 		add_child(goose)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
