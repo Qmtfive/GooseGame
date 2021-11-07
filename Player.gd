@@ -53,9 +53,8 @@ func _process(delta):
 		elif velocity.x != 0:
 			anims.play("WalkSide")
 			anims.flip_h = velocity.x > 0
-		else:
+		elif !attacking:
 			anims.stop()
-	
 		position += velocity * delta
 		position.x = clamp(position.x, 0, screen_size.x)
 		position.y = clamp(position.y, 0, screen_size.y)
