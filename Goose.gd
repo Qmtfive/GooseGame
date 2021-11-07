@@ -9,7 +9,7 @@ var timeTillStop = null
 var timeTillWalkAgain = null
 
 func newStopTimer():
-	var timeTillStop = Timer.new()
+	timeTillStop = Timer.new()
 	var rand = RandomNumberGenerator.new()
 	rand.randomize()
 	add_child(timeTillStop)
@@ -19,7 +19,7 @@ func newStopTimer():
 	return timeTillStop
 
 func newWalkTimer():
-	var timeTillWalkAgain = Timer.new()
+	timeTillWalkAgain = Timer.new()
 	var rand = RandomNumberGenerator.new()
 	rand.randomize()
 	add_child(timeTillWalkAgain)
@@ -59,3 +59,6 @@ func changeDirection():
 	xvel = rand.randf_range(-.5,.5)
 	yvel = yveltempstore
 	timeTillStop = newStopTimer()
+
+func _on_Visibility_screen_exited():
+	queue_free()
