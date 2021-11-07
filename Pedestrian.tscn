@@ -34,7 +34,6 @@ script = ExtResource( 5 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "WalkFast"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -48,4 +47,5 @@ scale = Vector2( 0.95, 1.65 )
 [node name="ChaseSphere" type="CollisionShape2D" parent="."]
 shape = SubResource( 3 )
 
+[connection signal="body_entered" from="." to="." method="_on_Pedestrian_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
