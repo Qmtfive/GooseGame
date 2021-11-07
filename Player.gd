@@ -2,8 +2,11 @@ extends Area2D
 
 export var speed = 400  # How fast the player will move (pixels/sec).
 var screen_size  # Size of the game window.
+onready var anims = $PlayerAnims
 
 func _ready():
+	anims.play("WalkSide")
+	anims.stop()
 	screen_size = get_viewport_rect().size
 
 func _process(delta):
@@ -18,11 +21,15 @@ func _process(delta):
 		velocity.y -= 1
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
-		$WalkingDude.play()
+	if velocity.y > 0:
+		anims.play("WalkUp")
+	elif velocity.y < 0:
+		anims.play("WalkDown")
+	elif velocity.x != 0:
+		anims.play("WalkSide")
+		anims.flip_h = velocity.x > 0
 	else:
-		$WalkingDude.stop()
+		anims.stop()
 	position += velocity * delta
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
-	if velocity.x != 0:
-		$WalkingDude.flip_h = velocity.x > 0
