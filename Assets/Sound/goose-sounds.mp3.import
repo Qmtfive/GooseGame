@@ -11,5 +11,5 @@ dest_files=[ "res://.import/goose-sounds.mp3-d1c2fbff5517638e1c9a1724ff5b5c01.mp
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
