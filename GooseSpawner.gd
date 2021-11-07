@@ -36,9 +36,18 @@ func spawnWave():
 		add_child(goose)
 		goose.connect("nomoregoose", self, "noMoreGoose")
 		goose.connect("score", self, "score")
+		geeseOnScreen += 1
 
 func noMoreGoose():
-	pass
+	geeseOnScreen -= 1
+	if geeseOnScreen <= 0:
+		nextWave += 3
+		$tillNextWave.start()
+		$theyCome.play()
 	
 func score():
-	pass
+	score += 1
+
+func _on_tillNextWave_timeout():
+	$theyCome.stop()
+	spawnWave()
