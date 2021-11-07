@@ -61,6 +61,11 @@ func _process(delta):
 	else:
 		$GooseAnimation.stop()
 	position += velocity * delta
+	var rand = RandomNumberGenerator.new()
+	rand.randomize()
+	var hjonk = rand.randi_range(0, 400)
+	if hjonk == 7:
+		$hjonk.play()
 
 func stop():
 	timeTillStop.stop()
