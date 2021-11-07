@@ -1,12 +1,14 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Goose/Goose1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Goose/Goose2.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Walker/Walk2.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Walker/Walk1.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Walker/Walk4.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Goose/Walk2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Goose/Walk1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Goose/Walk4.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Path/Path.png" type="Texture" id=6]
 [ext_resource path="res://Player.gd" type="Script" id=7]
+[ext_resource path="res://Level.gd" type="Script" id=8]
+[ext_resource path="res://Pedestrian.tscn" type="PackedScene" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -28,6 +30,8 @@ animations = [ {
 extents = Vector2( 10, 15.8852 )
 
 [node name="Level" type="Node2D"]
+script = ExtResource( 8 )
+Pedestrian = ExtResource( 9 )
 
 [node name="Map" type="Sprite" parent="."]
 position = Vector2( 240, 240 )
@@ -37,14 +41,12 @@ texture = ExtResource( 6 )
 position = Vector2( 52.653, 25.3004 )
 frames = SubResource( 1 )
 animation = "Goose"
-frame = 1
 playing = true
 
 [node name="WalkingDude" type="AnimatedSprite" parent="."]
 position = Vector2( 168.036, 45.8197 )
 frames = SubResource( 2 )
 animation = "WalkingDude"
-frame = 1
 playing = true
 
 [node name="Player" type="Area2D" parent="."]
@@ -55,8 +57,19 @@ speed = 100
 [node name="WalkingDude" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 2 )
 animation = "WalkingDude"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource( 3 )
+
+[node name="PedSpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="PedSpawnLeft" type="Position2D" parent="."]
+position = Vector2( 0, 240 )
+
+[node name="PedSpawnRight" type="Position2D" parent="."]
+position = Vector2( 480, 240 )
+
+[connection signal="timeout" from="PedSpawnTimer" to="." method="_on_PedSpawnTimer_timeout"]
