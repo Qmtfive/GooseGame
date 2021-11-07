@@ -17,6 +17,13 @@ func _ready():
 #func _process(delta):
 #	pass
 
+func game_over():
+	$PedSpawnTimer.stop()
+	get_tree().call_group("geese", "queue_free")
+	get_tree().call_group("pedestrians", "queue_free")
+
+func stop_chase():
+	get_tree().call_group("geese", "clear_victim")
 
 func _on_PedSpawnTimer_timeout():
 	var tospawn = randi() % 3 # Determine if ped should spawn
@@ -24,6 +31,8 @@ func _on_PedSpawnTimer_timeout():
 		tospawn = randi() % 2 # Determine which side to spawn ped on
 		var ped = Pedestrian.instance()
 		add_child(ped)
+		ped.connect("pedHit", self, "game_over")
+		ped.connect("pedDespawn", self, "stop_chase")
 		if tospawn == 0:
 			ped.position = $PedSpawnLeft.transform.get_origin()
 			ped.position.y = ped.position.y + ((randi()%40) - 20)

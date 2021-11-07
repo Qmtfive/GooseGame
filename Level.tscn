@@ -32,7 +32,6 @@ texture = ExtResource( 6 )
 position = Vector2( 168.036, 45.8197 )
 frames = SubResource( 1 )
 animation = "WalkingDude"
-frame = 3
 playing = true
 
 [node name="Player" type="Area2D" parent="."]
@@ -43,6 +42,7 @@ speed = 100
 [node name="WalkingDude" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 1 )
 animation = "WalkingDude"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
