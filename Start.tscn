@@ -21,3 +21,22 @@ frames = SubResource( 1 )
 
 [node name="StartMuzic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+
+[node name="StartButton" type="Button" parent="."]
+margin_left = 205.0
+margin_top = 407.0
+margin_right = 276.0
+margin_bottom = 443.0
+text = "START"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="TransMusic" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]

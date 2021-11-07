@@ -7,6 +7,8 @@ export (PackedScene) var Pedestrian
 # var a = 2
 # var b = "text"
 
+var starter = null
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,16 +16,24 @@ func _ready():
 	var startscene = load("res://Start.tscn")
 	var start = startscene.instance()
 	add_child(start)
+	starter = start
+	starter.connect("gameTimeStarted", self, "start_game")
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
+func start_game():
+	$PedSpawnTimer.start()
+	$GooseSpawner.start()
+
 func game_over():
 	$PedSpawnTimer.stop()
 	get_tree().call_group("geese", "queue_free")
 	get_tree().call_group("pedestrians", "queue_free")
+	$VE_LOST.show()
+	$LossTimer.start()
 
 func stop_chase():
 	get_tree().call_group("geese", "clear_victim")
@@ -47,4 +57,7 @@ func _on_PedSpawnTimer_timeout():
 			ped.rotation = deg2rad(0)
 			ped.linear_velocity = Vector2(-(rand_range(ped.min_speed, ped.med_speed)), 0)
 	
-	
+
+func _on_LossTimer_timeout():
+	$VE_LOST.hide()
+	starter.ShowStuff()

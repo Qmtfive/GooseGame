@@ -1,8 +1,8 @@
 extends Area2D
 
 # Declare member variables here.
-export var chaseSpeed = 1
-export var speed = 1
+export var chaseSpeed = 100
+export var speed = 50
 export var xvel = 0
 export var yvel = 0
 var yveltempstore = 0
