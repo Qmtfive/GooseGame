@@ -85,6 +85,7 @@ func changeDirection():
 	timeTillStop = newStopTimer()
 
 func _on_Visibility_screen_exited():
+	print("screen exit")
 	emit_signal("nomoregoose")
 	queue_free()
 
@@ -110,7 +111,8 @@ func _on_Goose_area_entered(area):
 		yvel = vel.y
 
 func _on_DeathBox_area_entered(area):
-	emit_signal("nomoregoose")
+	#print("geese down")
+	#emit_signal("nomoregoose")
 	emit_signal("score")
 	queue_free()
 

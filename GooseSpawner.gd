@@ -5,6 +5,7 @@ extends Node
 export var geeseOnScreen = 0
 export var score = 0
 var nextWave = 3
+var gameover = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -12,9 +13,11 @@ func _ready():
 	pass
 
 func start():
+	gameover = false
 	spawnWave()
 
 func reset():
+	gameover = true
 	geeseOnScreen = 0
 	score = 0
 	nextWave = 3
@@ -26,6 +29,7 @@ func _process(delta):
 	pass
 
 func spawnWave():
+	geeseOnScreen = 0
 	for i in range(0, nextWave):
 		var mothergoose = load("res://Goose.tscn")
 		var goose = mothergoose.instance()
@@ -46,12 +50,13 @@ func spawnWave():
 		geeseOnScreen += 1
 
 func noMoreGoose():
-	geeseOnScreen -= 1
-	if geeseOnScreen <= 0:
-		nextWave += 3
-		$tillNextWave.start()
-		$theyCome.play()
-	
+	if gameover != true:
+		geeseOnScreen -= 1
+		if geeseOnScreen <= 0:
+			nextWave += 3
+			$tillNextWave.start()
+			$theyCome.play()
+
 func score():
 	score += 1
 
