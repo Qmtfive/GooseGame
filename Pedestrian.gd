@@ -14,6 +14,8 @@ export var chased = false; # True if a goose has targeted this ped
 func _ready():
 	$AnimatedSprite.animation = "WalkSlow"
 
+func walkLeft():
+	$AnimatedSprite.flip_h = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

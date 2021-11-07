@@ -27,7 +27,7 @@ func _on_PedSpawnTimer_timeout():
 		if tospawn == 0:
 			ped.position = $PedSpawnLeft.transform.get_origin()
 			ped.position.y = ped.position.y + ((randi()%40) - 20)
-			ped.rotation = deg2rad(180)
+			ped.walkLeft()
 			ped.linear_velocity = Vector2(rand_range(ped.min_speed, ped.med_speed), 0)
 		else:
 			ped.position = $PedSpawnRight.transform.get_origin()
