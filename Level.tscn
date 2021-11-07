@@ -74,6 +74,8 @@ texture = ExtResource( 6 )
 
 [node name="Player" type="Area2D" parent="."]
 position = Vector2( 225, 240 )
+collision_layer = 0
+collision_mask = 0
 script = ExtResource( 7 )
 speed = 100
 
@@ -87,6 +89,7 @@ playing = true
 shape = SubResource( 2 )
 
 [node name="AttackDetect" type="Area2D" parent="Player"]
+collision_layer = 4
 
 [node name="AttackLeft" type="CollisionShape2D" parent="Player/AttackDetect"]
 position = Vector2( -23, 0 )
@@ -109,7 +112,7 @@ shape = SubResource( 6 )
 disabled = true
 
 [node name="AttackTimer" type="Timer" parent="Player/AttackDetect"]
-wait_time = 0.01
+wait_time = 0.05
 one_shot = true
 
 [node name="PedSpawnTimer" type="Timer" parent="."]
@@ -124,4 +127,5 @@ position = Vector2( 480, 240 )
 [node name="GooseSpawner" type="Node" parent="."]
 script = ExtResource( 9 )
 
+[connection signal="timeout" from="Player/AttackDetect/AttackTimer" to="Player" method="_on_AttackTimer_timeout"]
 [connection signal="timeout" from="PedSpawnTimer" to="." method="_on_PedSpawnTimer_timeout"]

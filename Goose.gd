@@ -1,8 +1,8 @@
 extends Area2D
 
 # Declare member variables here.
-export var chaseSpeed = 50
-export var speed = 30
+export var chaseSpeed = 1
+export var speed = 1
 export var xvel = 0
 export var yvel = 0
 var yveltempstore = 0
@@ -100,6 +100,9 @@ func _on_Goose_area_entered(area):
 		var vel = chase_victim()
 		xvel = vel.x
 		yvel = vel.y
+
+func _on_DeathBox_area_entered(area):
+	queue_free()
 
 func clear_victim():
 	victim = null
