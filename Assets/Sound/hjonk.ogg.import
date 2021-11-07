@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/hjonk.ogg-3729d2ce603674fef2891438beaa9068.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/hjonk.ogg"
+dest_files=[ "res://.import/hjonk.ogg-3729d2ce603674fef2891438beaa9068.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
