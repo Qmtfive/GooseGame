@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Walk4.png-e9bc2ec4bf92e04b3e937758c258068e.stex"
+path="res://.import/Walk1.png-f6113e8742c745db757a5cac0cf19432.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UmbrellaHolderSide/Walk4.png"
-dest_files=[ "res://.import/Walk4.png-e9bc2ec4bf92e04b3e937758c258068e.stex" ]
+source_file="res://Assets/UmbrellaHolderDown/Walk1.png"
+dest_files=[ "res://.import/Walk1.png-f6113e8742c745db757a5cac0cf19432.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

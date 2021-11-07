@@ -1,5 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=26 format=2]
 
+[ext_resource path="res://Assets/UmbrellaHolderUp/Walk2.png" type="Texture" id=1]
+[ext_resource path="res://Assets/UmbrellaHolderUp/Walk4.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Goose/Walk2.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Goose/Walk1.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Goose/Walk4.png" type="Texture" id=5]
@@ -8,6 +10,19 @@
 [ext_resource path="res://Level.gd" type="Script" id=8]
 [ext_resource path="res://GooseSpawner.gd" type="Script" id=9]
 [ext_resource path="res://Pedestrian.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/UmbrellaHolderSide/Walk2.png" type="Texture" id=11]
+[ext_resource path="res://Assets/UmbrellaHolderSide/Walk4.png" type="Texture" id=12]
+[ext_resource path="res://Assets/UmbrellaHolderUp/Walk1.png" type="Texture" id=13]
+[ext_resource path="res://Assets/UmbrellaHolderDown/Walk3.png" type="Texture" id=14]
+[ext_resource path="res://Assets/UmbrellaHolderDown/Walk1.png" type="Texture" id=15]
+[ext_resource path="res://Assets/UmbrellaHolderDown/Walk4.png" type="Texture" id=16]
+[ext_resource path="res://Assets/UmbrellaHolderUp/Walk3.png" type="Texture" id=17]
+[ext_resource path="res://Assets/UmbrellaHolderDown/Walk2.png" type="Texture" id=18]
+[ext_resource path="res://Assets/UmbrellaHolderSide/Walk1.png" type="Texture" id=19]
+[ext_resource path="res://Assets/UmbrellaHolderSide/Walk3.png" type="Texture" id=20]
+[ext_resource path="res://Assets/UmbrellaSlideAttack/Slide1.png" type="Texture" id=21]
+[ext_resource path="res://Assets/UmbrellaSlideAttack/Slide2.png" type="Texture" id=22]
+[ext_resource path="res://Assets/UmbrellaSlideAttack/Slide3.png" type="Texture" id=23]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -15,6 +30,26 @@ animations = [ {
 "loop": true,
 "name": "WalkingDude",
 "speed": 3.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 11 ), ExtResource( 20 ), ExtResource( 12 ), ExtResource( 20 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "WalkSide",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 1 ), ExtResource( 17 ), ExtResource( 2 ), ExtResource( 17 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "WalkUp",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 18 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "WalkDown",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
+"loop": false,
+"name": "Attack",
+"speed": 10.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -28,21 +63,15 @@ Pedestrian = ExtResource( 10 )
 position = Vector2( 240, 240 )
 texture = ExtResource( 6 )
 
-[node name="WalkingDude" type="AnimatedSprite" parent="."]
-position = Vector2( 168.036, 45.8197 )
-frames = SubResource( 1 )
-animation = "WalkingDude"
-frame = 3
-playing = true
-
 [node name="Player" type="Area2D" parent="."]
 position = Vector2( 225, 240 )
 script = ExtResource( 7 )
 speed = 100
 
-[node name="WalkingDude" type="AnimatedSprite" parent="Player"]
+[node name="PlayerAnims" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 1 )
-animation = "WalkingDude"
+animation = "Attack"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
